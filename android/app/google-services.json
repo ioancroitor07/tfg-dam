@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "579030577248",
+    "project_id": "tfg-dam-ea7e5",
+    "storage_bucket": "tfg-dam-ea7e5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579030577248:android:35ba3e0a3d3644c890d305",
+        "android_client_info": {
+          "package_name": "com.example.dasdasdasfas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdvdLr2OKilJx78xIMKAW9S0kUaUyI4H8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

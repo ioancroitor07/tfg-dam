@@ -2,14 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class RedesSociales extends StatelessWidget {
-  final Map<String, String> redes = {
-    'Facebook': 'https://facebook.com',
-    'Twitter': 'https://twitter.com',
-    'Instagram': 'https://instagram.com',
+  final Map<String, Map<String, String>> redes = {
+    'Facebook': {
+      'url': 'https://facebook.com',
+      'imagenFondo': 'assets/facebook.jpg',
+    },
+    'Twitter': {
+      'url': 'https://twitter.com',
+      'imagenFondo': 'assets/twitter.jpg',
+    },
+    'Instagram': {
+      'url': 'https://instagram.com',
+      'imagenFondo': 'assets/instagram.jpg',
+    },
   };
 
-  // ignore: use_key_in_widget_constructors
-  RedesSociales({Key? key});
+  RedesSociales({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,28 +25,54 @@ class RedesSociales extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Redes Sociales'),
       ),
-      body: ListView.separated(
+      body: ListView.builder(
         itemCount: redes.length,
-        separatorBuilder: (context, index) => const Divider(), // Agrega un divisor entre cada elemento
         itemBuilder: (context, index) {
-          String key = redes.keys.elementAt(index);
-          String imagen = ''; // Ruta de la imagen de la red social
-          if (key == 'Facebook') {
-            imagen = 'assets/facebook.jpg';
-          } else if (key == 'Twitter') {
-            imagen = 'assets/twitter.jpg';
-          } else if (key == 'Instagram') {
-            imagen = 'assets/instagram.jpg';
-          }
-          return ListTile(
-            leading: Image.asset(
-              imagen,
-              width: 48, // Tamaño de la imagen
-              height: 48,
+          var red = redes.entries.elementAt(index);
+          return Card(
+            elevation: 4,
+            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+            child: InkWell(
+              onTap: () => _launchURL(Uri.parse(red.value['url']!)),
+              child: Stack(
+                children: <Widget>[
+                  Container(
+                    height: 200,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(red.value['imagenFondo']!),
+                        fit: BoxFit.cover,
+                      ),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    child: Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: const BoxDecoration(
+                        color: Colors.black54,
+                        borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10),
+                        ),
+                      ),
+                      child: Text(
+                        red.key,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
-            title: Text(key),
-            trailing: const Icon(Icons.open_in_new),
-            onTap: () => _launchURL(Uri.parse(redes[key]!)),
           );
         },
       ),
@@ -46,7 +80,7 @@ class RedesSociales extends StatelessWidget {
   }
 
   Future<void> _launchURL(Uri url) async {
-    if (!await launchUrl(url)) {
+    if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {
       throw 'Could not launch $url';
     }
   }

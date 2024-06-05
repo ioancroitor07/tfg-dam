@@ -52,3 +52,6 @@ class _CentrosGimnasioState extends State<CentrosGimnasio> {
     );
   }
 }
+
+
+

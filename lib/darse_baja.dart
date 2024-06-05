@@ -155,9 +155,9 @@ class _DarseDeBajaState extends State<DarseDeBaja> {
               child: const Text('Confirmar Baja'),
               style: ElevatedButton.styleFrom(
                 // ignore: deprecated_member_use
-                primary: Colors.red,
+                backgroundColor: Colors.red,
                 // ignore: deprecated_member_use
-                onSurface: Colors.red.withOpacity(0.5), // Color when disabled
+                disabledForegroundColor: Colors.red.withOpacity(0.5).withOpacity(0.38), disabledBackgroundColor: Colors.red.withOpacity(0.5).withOpacity(0.12), // Color when disabled
                 minimumSize: const Size(double.infinity, 50),
               ),
             ),

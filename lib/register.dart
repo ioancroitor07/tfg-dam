@@ -22,6 +22,7 @@ class _RegisterPageState extends State<RegisterPage> {
       );
       // Si el registro es exitoso, muestra un diálogo de éxito
       showDialog(
+        // ignore: use_build_context_synchronously
         context: context,
         builder: (context) => AlertDialog(
           title: const Text('Registro exitoso'),
@@ -37,6 +38,7 @@ class _RegisterPageState extends State<RegisterPage> {
     } catch (e) {
       // Si ocurre un error, muestra un diálogo de error
       showDialog(
+        // ignore: use_build_context_synchronously
         context: context,
         builder: (context) => AlertDialog(
           title: const Text('Error de Registro'),

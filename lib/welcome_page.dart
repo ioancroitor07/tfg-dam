@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'horario_clases.dart'; // Asegúrate de que este importe sea correcto según la ubicación de tu archivo
 import 'ejercicios.dart'; // Importa la página de ejercicios
 import 'imc.dart'; // Importa la página de imc
-import 'nutricion.dart'; // Importa la página de nutrición
 import 'centros_gimnasio.dart'; // Importa la página de centros de gimnasio
 import 'redes_sociales.dart'; // Importa la página de redes sociales
 
@@ -38,11 +37,6 @@ class WelcomePage extends StatelessWidget {
         'titulo': 'Imc',
         'imagenFondo': 'assets/imc.jpg',
         'accion': () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Imc())),
-      },
-      {
-        'titulo': 'Nutrición',
-        'imagenFondo': 'assets/nutricion.jpg',
-        'accion': () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Nutricion())),
       },
       {
         'titulo': 'Ubicación',

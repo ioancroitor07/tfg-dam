@@ -25,7 +25,7 @@ class _HorarioClasesState extends State<HorarioClases> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Horario de Clases'),
+        title: const Text('Clases'),
       ),
       body: Column(
         children: [
@@ -48,7 +48,7 @@ class _HorarioClasesState extends State<HorarioClases> {
               child: const Text('Mis clases'),
               style: ElevatedButton.styleFrom(
                 // ignore: deprecated_member_use
-                primary: Colors.blue, // Define el color del botón
+                backgroundColor: Colors.blue, // Define el color del botón
                 minimumSize:
                     const Size.fromHeight(50), // Define la altura del botón
               ),
